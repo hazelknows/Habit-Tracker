@@ -15,24 +15,6 @@ def decrement_habits():
                 habit["displayFrequency"] -= 1
         time.sleep(1)
 
-# Convert time to text
-def time_to_text(seconds):
-    if seconds == 86400:
-        return "Daily"
-    elif seconds == 3600:
-        return "Hourly"
-    elif seconds == 60:
-        return "Minutely"
-    return "Daily"
-
-def seconds_to_text(seconds):
-    if not seconds:
-        return "0s"
-    hours = seconds // 3600
-    minutes = (seconds % 3600) // 60
-    seconds_left = seconds % 60
-    return f"{hours}h {minutes}m {seconds_left}s".strip()
-
 @app.route("/")
 def index():
     return render_template("index.html", habits=habits)
@@ -41,7 +23,7 @@ def index():
 def add_habit():
     data = request.json
     text = data.get("text", "")
-    frequency = data.get("frequency", 0)
+    frequency = int(data.get("frequency", 0))
     if text and frequency:
         habits.append({"text": text, "frequency": frequency, "displayFrequency": frequency})
     return jsonify(habits)
