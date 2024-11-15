@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Hound</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="dog-icon.png" alt="Dog Icon" class="dog-icon">
+            <h1>Habit Hound</h1>
+        </div>
+        <form id="habit-form">
+            <input type="text" id="habit-text" placeholder="Add a habit">
+            <select id="habit-frequency">
+                <option value="86400">Daily</option>
+                <option value="3600">Hourly</option>
+                <option value="60">Minutely</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div id="habits-list">
+            <!-- Habit Cards -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
