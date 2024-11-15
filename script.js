@@ -30,18 +30,34 @@ function renderHabits(habits) {
         const card = document.createElement("div");
         card.className = "habit-card";
         card.classList.add(
-            habit.displayFrequency < 10
+            habit.displayFrequency <= 0
                 ? "danger"
-                : habit.displayFrequency < 1000
+                : habit.displayFrequency < habit.frequency / 2
                 ? "warning"
                 : "safe"
         );
-        card.innerHTML = `<span>${habit.text}</span><span>${secondsToText(
-            habit.displayFrequency
-        )}</span>`;
+        card.innerHTML = `<span>${habit.text}</span>
+                          <span id="timer-${habit.text}">${secondsToText(habit.displayFrequency)}</span>`;
         card.addEventListener("click", () => resetHabit(habit.text));
         habitsList.appendChild(card);
+
+        // Update the timer for this habit every second
+        updateTimer(habit.text, habit.displayFrequency);
     });
+}
+
+function updateTimer(habitText, initialTime) {
+    let remainingTime = initialTime;
+    const timerSpan = document.getElementById(`timer-${habitText}`);
+    const interval = setInterval(() => {
+        if (remainingTime > 0) {
+            remainingTime--;
+            timerSpan.textContent = secondsToText(remainingTime);
+        } else {
+            timerSpan.textContent = "0s";
+            clearInterval(interval); // Stop updating when time reaches 0
+        }
+    }, 1000);
 }
 
 function secondsToText(seconds) {
