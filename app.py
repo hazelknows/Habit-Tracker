@@ -15,6 +15,15 @@ def decrement_habits():
                 habit["displayFrequency"] -= 1
         time.sleep(1)
 
+# Convert seconds to readable format
+def seconds_to_text(seconds):
+    if not seconds:
+        return "0s"
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    seconds_left = seconds % 60
+    return f"{hours}h {minutes}m {seconds_left}s".strip()
+
 @app.route("/")
 def index():
     return render_template("index.html", habits=habits)
