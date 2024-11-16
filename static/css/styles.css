@@ -1,22 +1,22 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #171A2B; /*previously #f4f4f4*/
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #232538; /*previously #fff*/
+    box-shadow: 0 2px 4px rgba(255, 107, 107, 0.445); /*previously rgba(0, 0, 0, 0.1)*/
     border-radius: 8px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #F0F1F5;/*previously #333*/
 }
 
 form {
@@ -27,20 +27,27 @@ form {
 
 input, select, button {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #2C2E3F; /*previously #ddd*/
     border-radius: 4px;
     margin-right: 10px;
 }
 
 button {
-    background: #28a745;
+    background: #4E7D96; /*previously #28a745*/
     color: white;
     border: none;
     cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Default shadow */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background: #218838;
+    background: #365B6B; /* Change to a darker green, previously #218838*/
+    transform: scale(1.15); /* Slight enlargement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Bigger shadow for the "lift" effect */
+    filter: brightness(1.1); /* Slightly increase brightness */
 }
 
 #habits-list {
