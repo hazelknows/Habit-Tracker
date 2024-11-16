@@ -1,3 +1,12 @@
+import subprocess
+import sys
+
+# Install Flask if it's not installed
+try:
+    import flask
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "flask"])
+
 from flask import Flask, render_template, request, jsonify
 import time
 import threading
